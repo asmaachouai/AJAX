@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function ajaxing(){
+      if(window.ActiveObject)
+        alert("Votre navigateur supporte\n ActiveObject");
+        else{
+        if(window.XMLHttpRequest)
+        alert("Votre navigateur supporte\n XMLHttprequest");
+      }
+      }
+    </script>
+  </head>
+  <body>
+  <input type="button" value="Executer AJAX" onclick="ajaxing()"/>
+  </body>
+</html>

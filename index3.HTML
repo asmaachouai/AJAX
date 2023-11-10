@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    function getxhr(){
+      try{xhr= new XMLHttpRequest();}
+      catch(e){
+        try{xhr= new ActiveXObject("Microsoft.XMLHTTP")}
+        catch(e1){
+          try{xhr= new ActiveXObject("Msxml2.XMLHTTP")}
+          catch(e2){ alert("AJAX non supporté");}
+        }
+      }
+      return xhr;
+    }
+      function ajaxing(){
+       xhr=getxhr();
+       xhr.onreadystatechange=function(){
+         if(xhr.readyState==4)
+         document.getElementById("divi").innerHTML=xhr.responseText;
+         else document.getElementById("divi").innerHTML="En Cours....";
+       }
+       xhr.open("post","contenu.php",true);
+       xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+       xhr.send("message=Bonjour les amis&nbr=20");
+      }
+    </script>
+  </head>
+  <body>
+  <input type="button" value="Executer AJAX" onclick="ajaxing()"/>
+  <div id="divi">
+
+  </div>
+  </body>
+</html>
